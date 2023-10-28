@@ -6,5 +6,5 @@ I've used [Jenkins](https://www.jenkins.io/) a lot at work and was curious if I 
 There are just two files in this repo, maybe my most simple repository.
 | File | Purpose |
 | -- | -- |
-| [Dockerfile](Dockerfile) | The file used by `docker build` - I think this is basically verbatim from the Jenkins site. |
-| [start.sh](start.sh) | Starts the smash: <ol><li>Tears down all containers</li><li>Removes all images</li><li>Rebuilds the image</li><li>Starts container</li></ol><br>I cooked this script up on my own based on instructions from the Jenkins site and my own ideas.</br> |
+| [`Dockerfile`](Dockerfile) | The file used by `docker build` - I think this is basically verbatim from the Jenkins site. |
+| [`start.sh`](start.sh) | Starts the smash: <ol><li>Tears down all containers</li><li>Removes all images</li><li>Rebuilds the image (`docker build`) - see `Dockerfile`</li><li>Starts container</li></ol><br>I cooked this script up on my own based on instructions from the Jenkins site and my own ideas.</br> |
