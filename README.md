@@ -6,5 +6,5 @@ I've used Jenkins a lot at work and was curious if I could do it on my home Linu
 There are just two files in this repo, maybe my most simple repository.
 | File | Purpose |
 | -- | -- |
-| [Dockerfile] | The file used by `docker build` |
-| [start.sh] | Starts the smash: <ol><li>Tears down all containers</li><li>Removes all images</li><li>Rebuilds the image</li><li>Starts container</li></ol> |
+| [Dockerfile](Dockerfile) | The file used by `docker build` |
+| [start.sh](start.sh) | Starts the smash: <ol><li>Tears down all containers</li><li>Removes all images</li><li>Rebuilds the image</li><li>Starts container</li></ol> |
