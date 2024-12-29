@@ -2,10 +2,15 @@ set -x
 docker ps -qa | xargs -r docker rm -f
 docker images -q | xargs -r docker rmi -f
 
-docker build -t myjenkins-blueocean:2.414.2-1 .
+docker network rm -f jenkins
+docker network create jenkins
 
-# Jenkins data is stored persistently under /var/lib/docker/volumes/jenkins-data.  Although I own files in the tree, root owns /var/lib/docker and
-# its permissions are 0o710 so can't see the files even if I know their full path.
+docker build -t myjenkins-blueocean .
+
+# Jenkins data is stored persistently under /var/lib/docker/volumes/jenkins-data.  Although I own files in the tree,
+# root owns /var/lib/docker and its permissions are 0o710 so can't see the files even if I know their full path.
+#
+# DO NOT USE `restart-docker` because it will wipe out everything under /var/lib/docker.
 
 docker run \
   --name jenkins-blueocean \
@@ -19,4 +24,4 @@ docker run \
   --publish 50000:50000 \
   --volume jenkins-data:/var/jenkins_home \
   --volume jenkins-docker-certs:/certs/client:ro \
-  myjenkins-blueocean:2.414.2-1
+  myjenkins-blueocean

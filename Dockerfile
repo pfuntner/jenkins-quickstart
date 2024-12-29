@@ -1,11 +1,6 @@
-FROM jenkins/jenkins:2.414.2-jdk17
+FROM jenkins/jenkins:2.479.2-jdk17
 USER root
-
-# bsdextrautils provides the column command
-RUN apt-get update && apt-get install -y lsb-release python3 python3-pip bsdextrautils
-RUN ln -sv /usr/bin/python3 /usr/bin/python
-RUN python -m pip install ansible --break-system-packages
-
+RUN apt-get update && apt-get install -y lsb-release
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
   https://download.docker.com/linux/debian/gpg
 RUN echo "deb [arch=$(dpkg --print-architecture) \
