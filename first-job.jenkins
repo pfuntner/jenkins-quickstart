@@ -1,0 +1,17 @@
+// An example Jenkins script
+
+pipeline {
+    agent {
+        docker {
+            image 'ubuntu:24.04'
+        }
+    }
+
+    stages {
+        stage('Stage 1') {
+            steps {
+                sh 'cat /etc/os-release'
+            }
+        }
+    }
+}
